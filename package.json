@@ -1,0 +1,20 @@
+{
+  "name": "electron-ipc-demo",
+  "version": "1.0.0",
+  "description": "A Project that demonstrates IPC messaging for an app that has functionality in main and renderer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.procilon.local:max.fichtelmann/electron-ipc-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "electron": "^10.1.5"
+  }
+}

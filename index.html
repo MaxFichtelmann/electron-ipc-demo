@@ -1,0 +1,41 @@
+<html>
+  <body>
+    <form name="sampleform">
+      <input name="reverseme" placeholder="Enter Text" />
+      <input type="submit" value="Reverse" />
+      <input type="button" value="Reverse now" id="quick" />
+      <input type="button" value="Reverse instant" id="instant" />
+    </form>
+    <p id="reverse-text"></p>
+    <script>
+      document.forms.sampleform.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        console.time("reverse");
+
+        const text = document.forms.sampleform.reverseme.value;
+        const reversed = await ipcDemo.reverse(text);
+
+        document.getElementById("reverse-text").textContent = reversed;
+        console.timeEnd("reverse");
+      });
+
+      document.querySelector("#quick").addEventListener("click", async () => {
+        console.time("reverse-now");
+        const text = document.forms.sampleform.reverseme.value;
+        const reversed = await ipcDemo.reverseNow(text);
+
+        document.getElementById("reverse-text").textContent = reversed;
+        console.timeEnd("reverse-now");
+      });
+
+      document.querySelector("#instant").addEventListener("click", async () => {
+        console.time("reverse-instant");
+        const text = document.forms.sampleform.reverseme.value;
+        const reversed = [...text].reverse().join();
+
+        document.getElementById("reverse-text").textContent = reversed;
+        console.timeEnd("reverse-instant");
+      });
+    </script>
+  </body>
+</html>
